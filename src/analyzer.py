@@ -1695,7 +1695,7 @@ class GeminiAnalyzer:
 - 只有在接近支撑确认或有效突破压力，且资金流/量价配合时，才能给出买入；接近压力且资金流出时不得追买。
 - 只有在跌破关键支撑、主力资金持续流出或风险显著放大时，才能给出卖出/减仓。"""
 
-    SYSTEM_PROMPT = """你是一位{market_placeholder}投资分析师，负责生成专业的【决策仪表盘】分析报告。
+    SYSTEM_PROMPT = """你是一位{market_placeholder}投資分析師，負責生成專業的【決策儀表板】分析報告。請使用繁體中文輸出，禁止使用簡體中文。
 
 {guidelines_placeholder}
 

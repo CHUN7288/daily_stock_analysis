@@ -141,8 +141,6 @@ class MarketAnalyzer:
         configured = normalize_report_language(
             getattr(getattr(self, "config", None), "report_language", "zh")
         )
-        if self.region == "us":
-            return "en"
         return configured
 
     def _get_template_review_language(self) -> str:
@@ -153,7 +151,7 @@ class MarketAnalyzer:
     def _get_market_scope_name(self, review_language: str | None = None) -> str:
         review_language = review_language or self._get_review_language()
         if self.region == "us":
-            return "US market"
+            return "US market" if review_language == "en" else "美股市场"
         if self.region == "hk":
             return "Hong Kong market" if review_language == "en" else "港股市场"
         if review_language == "en":
@@ -1056,11 +1054,12 @@ Output the report content directly, no extra commentary.
         return f"""你是一位专业的A/H/美股市场分析师，请根据以下数据生成一份结构化的{self._get_market_scope_name('zh')}大盘复盘报告。
 
 【重要】输出要求：
+- 必须使用繁體中文輸出，禁止使用簡體中文
 - 必须输出纯 Markdown 文本格式
 - 禁止输出 JSON 格式
 - 禁止输出代码块
 - emoji 仅在标题处少量使用（每个标题最多1个）
-- 报告要像交易员盘后工作台：先给结论，再按数据表、主线、催化、计划展开
+- 报告要像交易員盤後工作台：先给结论，再按数据表、主线、催化、计划展开
 - 不要重复列出已由系统注入的表格数据；正文负责解释表格背后的含义
 
 ---
