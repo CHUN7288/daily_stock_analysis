@@ -3,8 +3,10 @@
 ## 環境設定
 
 ### LLM
-- 使用 Gemini 2.5 Flash（免費方案）
-- 環境變數：`GEMINI_API_KEY`、`GEMINI_MODEL=gemini-2.5-flash-preview-05-20`
+- 使用 Gemini 2.0 Flash（免費方案，1,500 次/天）
+- 環境變數：`GEMINI_API_KEY`、`GEMINI_MODEL=gemini-2.0-flash`
+- ⚠️ 不可用：`gemini-2.5-flash`（免費僅 20 次/天，20 支股票一跑即爆）
+- ⚠️ 不可用：`gemini-2.5-flash-preview-05-20`（GitHub Actions 環境 404 找不到）
 
 ### 數據源
 - 美股行情：`FINNHUB_API_KEY`（免費方案，60 calls/min）
@@ -62,7 +64,7 @@ cd /mnt/c/Users/User/Desktop/CHUN7288-Agent/daily_stock_analysis
 
 | Variable | 值 |
 |----------|----|
-| `GEMINI_MODEL` | `gemini-2.5-flash-preview-05-20` |
+| `GEMINI_MODEL` | `gemini-2.0-flash` |
 | `REPORT_LANGUAGE` | `zh` |
 | `MARKET_REVIEW_REGION` | `us` |
 
